@@ -79,8 +79,24 @@ android {
         }
     }
 
+    signingConfigs {
+        debug {
+            storeFile file('./debug.keystore')
+            storePassword '07310731'
+            keyAlias 'debug_key'
+            keyPassword '07310731'
+        }
+        release {
+            storeFile file('./release.keystore')
+            storePassword '07310731'
+            keyAlias 'release_key'
+            keyPassword '07310731'
+        }
+    }
+
     buildTypes {
         debug {
+            signingConfig signingConfigs.debug
             applicationIdSuffix ".debug"
             resValue "string", "app_label", "广汽串流"
             resValue "string", "app_label_root", "广汽串流"
@@ -125,6 +141,7 @@ android {
 
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
