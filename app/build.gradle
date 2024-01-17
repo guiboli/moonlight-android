@@ -36,7 +36,7 @@ android {
                 }
             }
 
-            applicationId "com.limelight.root"
+            applicationId "com.dm.stream.root"
             dimension "root"
             buildConfigField "boolean", "ROOT_BUILD", "true"
         }
@@ -48,7 +48,7 @@ android {
                 }
             }
 
-            applicationId "com.limelight"
+            applicationId "com.dm.stream"
             dimension "root"
             buildConfigField "boolean", "ROOT_BUILD", "false"
         }
@@ -79,11 +79,27 @@ android {
         }
     }
 
+    signingConfigs {
+        debug {
+            storeFile file('./debug.keystore')
+            storePassword '07310731'
+            keyAlias 'debug_key'
+            keyPassword '07310731'
+        }
+        release {
+            storeFile file('./release.keystore')
+            storePassword '07310731'
+            keyAlias 'release_key'
+            keyPassword '07310731'
+        }
+    }
+
     buildTypes {
         debug {
+            signingConfig signingConfigs.debug
             applicationIdSuffix ".debug"
-            resValue "string", "app_label", "Moonlight (Debug)"
-            resValue "string", "app_label_root", "Moonlight (Root Debug)"
+            resValue "string", "app_label", "广汽串流"
+            resValue "string", "app_label_root", "广汽串流"
 
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -120,11 +136,12 @@ android {
             //
             // TL;DR: Leave the following line alone!
             applicationIdSuffix ".unofficial"
-            resValue "string", "app_label", "Moonlight"
-            resValue "string", "app_label_root", "Moonlight (Root)"
+            resValue "string", "app_label", "广汽串流"
+            resValue "string", "app_label_root", "广汽串流"
 
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 

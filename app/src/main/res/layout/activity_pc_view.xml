@@ -60,7 +60,7 @@
         android:preferKeepClear="true"
         style="?android:attr/borderlessButtonStyle"/>
 
-    <ImageButton
+    <!-- <ImageButton
         android:id="@+id/helpButton"
         android:layout_width="70dp"
         android:layout_height="65dp"
@@ -71,7 +71,7 @@
         android:layout_toEndOf="@+id/settingsButton"
         android:src="@drawable/ic_help"
         android:preferKeepClear="true"
-        style="?android:attr/borderlessButtonStyle"/>
+        style="?android:attr/borderlessButtonStyle"/> -->
     
     <ImageButton
         android:id="@+id/manuallyAddPc"
